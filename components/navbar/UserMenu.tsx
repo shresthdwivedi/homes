@@ -34,11 +34,11 @@ const UserMenu = () => {
                 <div className="absolute p-4 text-sm right-0 top-14 rounded-xl shadow-md w-[40vw] overflow-hidden md:w-3/4 bg-white">
                     <div className="flex flex-col cursor-pointer">
                         <MenuItem 
-                            onClick={()=>{}}
+                            onClick={toggleOpen}
                             label="Register"
                         />
                         <MenuItem 
-                            onClick={()=>{}}
+                            onClick={toggleOpen}
                             label="Sign In"
                         />
                     </div>

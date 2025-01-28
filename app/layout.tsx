@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Navbar from "./components/navbar/Navbar"
+import Navbar from "../components/navbar/Navbar"
 import "./globals.css";
+import RegisterModal from "@/components/modals/RegisterModal";
 
 export const metadata: Metadata = {
   title: "Homes",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <RegisterModal/>
         <Navbar />
         {children}
       </body>
