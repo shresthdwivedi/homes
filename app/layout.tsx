@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "./components/navbar/Navbar"
 import "./globals.css";
-import ClientOnly from "./components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Homes",
