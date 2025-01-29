@@ -2,6 +2,7 @@
 
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import { useState } from "react";
+import Modal from "./Modal";
 
 const RegisterModal = () => {
 
@@ -11,7 +12,9 @@ const RegisterModal = () => {
     
     return (  
         <div>
-
+            <Modal 
+                isOpen={registerModal.isOpen}
+            />
         </div>
     );
 }
