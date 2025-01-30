@@ -39,20 +39,11 @@ const Modal: React.FC<ModalProps> = ({
   onSubmit,
 }) => {
 
-  const [showModal, setShowModal] = useState(isOpen);
-
-  useEffect(() => {
-    setShowModal(isOpen);
-  }, [isOpen])
-
   const handleClose = useCallback(() => {
     if(disabled){
       return;
     }
-    setShowModal(false);
-    setTimeout(() => {
-      onClose();
-    }, 300)
+    onClose();
   }, [disabled, onClose])
 
   const handleSubmit = useCallback(() => {
@@ -73,9 +64,10 @@ const Modal: React.FC<ModalProps> = ({
   if(!isOpen) {
     return null;
   }
+
   return (  
     <>
-      <Dialog open={showModal} onOpenChange={handleClose}>
+      <Dialog open={isOpen} onOpenChange={handleClose}>
           <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
                 <DialogTitle>{title}</DialogTitle>
@@ -86,10 +78,11 @@ const Modal: React.FC<ModalProps> = ({
               {body}
               <DialogFooter>
                 {secondaryActionLabel && secondaryAction && (
-                  <Button disabled={disabled} onClick={handleSecondaryAction}>{secondaryActionLabel}</Button>
+                  <Button className="w-full" disabled={disabled} variant={"outline"} onClick={handleSecondaryAction}>{secondaryActionLabel}</Button>
                 )}
-                <Button disabled={disabled} className="bg-[#FA6866]" onClick={handleSubmit}>{actionLabel}</Button>
+                <Button className="w-full" disabled={disabled} onClick={handleSubmit}>{actionLabel}</Button>
               </DialogFooter>
+              {footer}
           </DialogContent>
       </Dialog>
     </>

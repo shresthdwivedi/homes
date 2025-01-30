@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "../components/navbar/Navbar"
 import "./globals.css";
 import RegisterModal from "@/components/modals/RegisterModal";
+import ToasterProvider from "./providers/ToasterProvider";
 
 export const metadata: Metadata = {
   title: "Homes",
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <ToasterProvider />
         <RegisterModal />
         <Navbar />
         {children}
