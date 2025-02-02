@@ -9,6 +9,7 @@ import FormInput from "../inputs/FormInput";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { AiFillGithub } from "react-icons/ai";
+import { signIn } from "next-auth/react";
 
 const RegisterModal = () => {
 
@@ -54,7 +55,9 @@ const RegisterModal = () => {
     const footerContent = (
         <div className="flex flex-col gap-4 mt-3">
             <hr />
-            <Button className="mt-3"
+            <Button 
+                onClick={() => signIn('github')}
+                className="mt-3"
                 variant={"outline"}
             >
                 <AiFillGithub/> Continue with GitHub

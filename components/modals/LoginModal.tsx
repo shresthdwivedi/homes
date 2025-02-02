@@ -62,7 +62,10 @@ const LoginModal = () => {
     const footerContent = (
         <div className="flex flex-col gap-4 mt-3">
             <hr />
-            <Button className="mt-3"
+            <Button
+                type="submit"
+                onClick={() => signIn('github')} 
+                className="mt-3"
                 variant={"outline"}
             >
                 <AiFillGithub/> Continue with GitHub
