@@ -1,7 +1,7 @@
 'use client';
 
 import useLoginModal from "@/app/hooks/useLoginModal";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Modal from "./Modal";
 import { FieldValues, useForm, SubmitHandler } from 'react-hook-form';
 import FormInput from "../inputs/FormInput";
@@ -10,11 +10,13 @@ import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { AiFillGithub } from "react-icons/ai";
 import { useRouter } from "next/navigation";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const LoginModal = () => {
 
     const router = useRouter();
     const loginModal = useLoginModal();
+    const registerModal = useRegisterModal();
     const [isLoading, setIsLoading] = useState(false);
 
     const { 
@@ -76,7 +78,10 @@ const LoginModal = () => {
                         Don't have an account?
                     </p>
                     <div 
-                        onClick={() => {}}
+                        onClick={() => {
+                            loginModal.onClose();
+                            registerModal.onOpen();
+                        }}
                         className="ml-1 cursor-pointer hover:text-neutral-800 hover:underline">
                         Register
                     </div>

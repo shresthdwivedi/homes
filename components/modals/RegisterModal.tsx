@@ -10,10 +10,12 @@ import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { AiFillGithub } from "react-icons/ai";
 import { signIn } from "next-auth/react";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 const RegisterModal = () => {
 
     const registerModal = useRegisterModal();
+    const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
 
     const { 
@@ -68,7 +70,10 @@ const RegisterModal = () => {
                         Already have an Account?
                     </p>
                     <div 
-                        onClick={() => {}}
+                        onClick={() => {
+                            registerModal.onClose();
+                            loginModal.onOpen();
+                        }}
                         className="ml-1 cursor-pointer hover:text-neutral-800 hover:underline">
                         Sign In
                     </div>

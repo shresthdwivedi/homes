@@ -39,7 +39,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                     className="cursor-pointer rounded-full p-4 md:px-2 md:py-2 border-neutral-200 border-[1px] hover:shadow-md transition flex flex-row items-center gap-3 ">
                     <AiOutlineMenu size ={18} />
                     <div className="hidden md:block">
-                        <Avatar />
+                        <Avatar src={currentUser?.image}/>
                     </div>
                 </div>
             </div>
