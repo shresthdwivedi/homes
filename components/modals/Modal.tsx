@@ -75,6 +75,7 @@ const Modal: React.FC<ModalProps> = ({
                   {description}
                 </DialogDescription>
               </DialogHeader>
+              <hr />
               {body}
               <DialogFooter>
                 {secondaryActionLabel && secondaryAction && (

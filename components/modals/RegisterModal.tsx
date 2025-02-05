@@ -1,7 +1,7 @@
 'use client';
 
 import useRegisterModal from "@/app/hooks/useRegisterModal";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Modal from "./Modal";
 import { FieldValues, useForm, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
@@ -17,6 +17,11 @@ const RegisterModal = () => {
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
+
+        const toggle = useCallback(() => {
+            registerModal.onClose();
+            loginModal.onOpen();
+        }, [loginModal, registerModal])
 
     const { 
         register, 
@@ -70,10 +75,7 @@ const RegisterModal = () => {
                         Already have an Account?
                     </p>
                     <div 
-                        onClick={() => {
-                            registerModal.onClose();
-                            loginModal.onOpen();
-                        }}
+                        onClick={toggle}
                         className="ml-1 cursor-pointer hover:text-neutral-800 hover:underline">
                         Sign In
                     </div>

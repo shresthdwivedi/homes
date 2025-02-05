@@ -19,6 +19,11 @@ const LoginModal = () => {
     const registerModal = useRegisterModal();
     const [isLoading, setIsLoading] = useState(false);
 
+    const toggle = useCallback(() => {
+        loginModal.onClose();
+        registerModal.onOpen();
+    }, [loginModal, registerModal])
+
     const { 
         register, 
         handleSubmit,
@@ -78,10 +83,7 @@ const LoginModal = () => {
                         Don't have an account?
                     </p>
                     <div 
-                        onClick={() => {
-                            loginModal.onClose();
-                            registerModal.onOpen();
-                        }}
+                        onClick={toggle}
                         className="ml-1 cursor-pointer hover:text-neutral-800 hover:underline">
                         Register
                     </div>
