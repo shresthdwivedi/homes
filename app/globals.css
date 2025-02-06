@@ -8,6 +8,14 @@ body,
   height: 100%,
 }
 
+.leaflet-pane,
+.leaflet-control,
+.leaflet-bottom,
+.leaflet-top {
+  z-index: 0 !important
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;

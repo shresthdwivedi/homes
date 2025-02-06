@@ -6,6 +6,8 @@ import useRentModal from '@/app/hooks/useRentModals';
 import { categories } from '../navbar/Categories';
 import CategoryInput from '../inputs/CategoryInput';
 import { FieldValues, useForm } from 'react-hook-form';
+import CountrySelect from '../inputs/CountrySelect';
+import Map from '../Map';
 
 enum STEPS {
     CATEGORY = 0,
@@ -47,6 +49,8 @@ const RentModal = () => {
 
     
     const category = watch('category');
+    const location = watch('location');
+
     const setCustomValue = (id: string, value: any) => {
         setValue(id, value, {
             shouldValidate: true,
@@ -106,6 +110,32 @@ const RentModal = () => {
             </div>
         </div>
     )
+
+    if (step === STEPS.LOCATION) {
+        bodyContent = (
+            <div className='flex flex-col gap-6'>
+                <div className='text-neutral-400'>
+                    <div className='text-black font-semibold text-xl mb-2'>
+                        Where is your place located?
+                    </div>
+                     Help guests find you!
+                </div>
+                <CountrySelect 
+                    value={location}
+                    onChange={(value) => setCustomValue('location', value)}
+                />
+                <Map center={location} />
+            </div>
+        )
+    }
+
+    if (step === STEPS.INFO) {
+        bodyContent = (
+            <div>
+
+            </div>
+        )
+    }
 
     return (
         <Modal 
