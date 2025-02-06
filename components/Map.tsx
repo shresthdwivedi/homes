@@ -25,11 +25,12 @@ const Map: React.FC<MapProps> = ({
   return (
     <MapContainer
         center={center as L.LatLngExpression || [51.505, -0.01]}
-        zoom={center ? 15 : 2}
+        zoom={center ? 4 : 2}
         scrollWheelZoom={false}
         className='h-[35vh]'    
         >
         <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker
